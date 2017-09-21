@@ -19,14 +19,18 @@ repositories {
     jcenter()
 }
 
+sourceCompatibility = 1.9
+
 dependencies {
-    // This dependency is found on compile classpath of this component and consumers.
-    compile 'com.google.guava:guava:21.0'
     compile 'org.apache.logging.log4j:log4j-slf4j-impl:2.8.2'
     compile 'org.apache.logging.log4j:log4j-core:2.8.2'
 
-    // Use JUnit test framework
-    testCompile 'junit:junit:4.12'
+    testCompile 'com.fasterxml.jackson.core:jackson-annotations:2.9.1';
+    testCompile 'com.fasterxml.jackson.core:jackson-core:2.9.1';
+    testCompile 'com.fasterxml.jackson.core:jackson-databind:2.9.1';
+
+    testCompile 'org.junit.jupiter:junit-jupiter-params:5.0.0'
+    testCompile 'org.junit.jupiter:junit-jupiter-engine:5.0.0'
 }
 
 // Define the main class for the application
