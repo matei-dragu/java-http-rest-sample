@@ -44,9 +44,9 @@ dependencies {
     compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.9.2'
 
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
-    compile 'org.liquibase:liquibase-core'
     compile 'org.springframework.boot:spring-boot-starter-webflux'
-    
+    compile 'javax.xml.bind:jaxb-api:2.3.0' // needed by Spring ORM JPA
+
     runtime 'com.h2database:h2'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
