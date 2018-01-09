@@ -55,6 +55,7 @@ dependencies {
 
     testCompile 'org.junit.jupiter:junit-jupiter-params:5.0.2'
     testCompile 'org.junit.jupiter:junit-jupiter-engine:5.0.2'
+    testCompile 'org.apiguardian:apiguardian-api:1.0.0' // silence test compile warnings
 }
 
 // Define the main class for the application
