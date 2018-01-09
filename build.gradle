@@ -36,7 +36,7 @@ repositories {
 sourceCompatibility = 1.9
 
 dependencies {
-    //compile 'org.projectlombok:lombok:1.16.18'
+    compile 'org.projectlombok:lombok:1.16.20'
 
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.9.3'
     compile 'com.fasterxml.jackson.core:jackson-core:2.9.3'
