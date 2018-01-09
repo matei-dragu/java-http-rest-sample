@@ -38,10 +38,11 @@ sourceCompatibility = 1.9
 dependencies {
     //compile 'org.projectlombok:lombok:1.16.18'
 
-    compile 'com.fasterxml.jackson.core:jackson-annotations:2.9.2'
-    compile 'com.fasterxml.jackson.core:jackson-core:2.9.2'
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.9.2'
-    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.9.2'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.9.3'
+    compile 'com.fasterxml.jackson.core:jackson-core:2.9.3'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.9.3'
+    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.9.3'
+    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.9.3'
 
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
     compile 'org.springframework.boot:spring-boot-starter-webflux'
