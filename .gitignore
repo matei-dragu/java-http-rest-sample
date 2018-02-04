@@ -16,5 +16,7 @@ hs_err_pid*
 # Ignore Gradle build directory
 build/
 
-# IntelliJ IDEA out folder
+# IntelliJ IDEA files
 out/
+*.iml
+.idea/
