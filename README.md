@@ -11,9 +11,9 @@ Create the following environment variable:
 
 #### MacOS (terminal):
 
-Create the following environment variable:
+Create the following environment variable in **_~/.bashrc_**, **_~/.bash_profile_** or **_~/.profile_**: 
 
-> **SPRING_OUTPUT_ANSI_ENABLED** = **ALWAYS**
+> export SPRING_OUTPUT_ANSI_ENABLED=ALWAYS
 
  #### MacOS (IntelliJ console):
 
