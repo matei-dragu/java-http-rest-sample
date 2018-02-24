@@ -2,6 +2,7 @@ package com.sampleapp.vavr.functions;
 
 import io.vavr.Function1;
 import io.vavr.Function2;
+import io.vavr.control.Option;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.BDDAssertions.then;
@@ -39,5 +40,21 @@ class FunctionsTest {
 
         then(addOneAndMultiplyByTen.apply(2L)).isEqualTo(30L);
         then(multiplyByTenAndAddOne.apply(2L)).isEqualTo(21L);
+    }
+
+    @Test
+    void liftingTest() {
+        Function2<Long, Long, Long> longDivisionPartialFunction  = (a, b) -> a / b;
+        Function2<Long, Long, Option<Long>> longDivisionLifted = Function2.lift(longDivisionPartialFunction);
+
+        // = None
+        Option<Long> result1 = longDivisionLifted.apply(1L, 0L);
+
+        // = Some(2)
+        Option<Long> result2 = longDivisionLifted.apply(6L, 2L);
+
+        then(result1).isEqualTo(Option.none());
+        then(result2.isDefined()).isTrue();
+        then(result2.get()).isEqualTo(3L);
     }
 }
