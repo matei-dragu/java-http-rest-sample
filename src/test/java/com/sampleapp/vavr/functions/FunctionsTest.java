@@ -69,5 +69,9 @@ class FunctionsTest {
 
         // 11 + 13 + 6 = 30
         then(add2LongsTo6.apply(11L, 13L)).isEqualTo(30L);
+
+        // Arity = number of function arguments
+        then(add5Longs.arity()).isEqualTo(5);
+        then(add2LongsTo6.arity()).isEqualTo(2);
     }
 }
