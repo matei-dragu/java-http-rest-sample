@@ -50,6 +50,8 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-webflux'
     compile 'javax.xml.bind:jaxb-api:2.3.0' // needed by Spring ORM JPA
 
+    compile 'io.vavr:vavr:0.9.2'
+
     runtime 'com.h2database:h2'
 
     testCompileOnly "org.projectlombok:lombok"
