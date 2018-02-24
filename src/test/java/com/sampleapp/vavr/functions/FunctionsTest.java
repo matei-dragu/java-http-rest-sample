@@ -2,6 +2,7 @@ package com.sampleapp.vavr.functions;
 
 import io.vavr.Function1;
 import io.vavr.Function2;
+import io.vavr.Function5;
 import io.vavr.control.Option;
 import org.junit.jupiter.api.Test;
 
@@ -56,5 +57,17 @@ class FunctionsTest {
         then(result1).isEqualTo(Option.none());
         then(result2.isDefined()).isTrue();
         then(result2.get()).isEqualTo(3L);
+    }
+
+    @Test
+    void parameterFixingTest() {
+        Function5<Long, Long, Long, Long, Long, Long> add5Longs = (a, b, c, d, e) -> a + b + c + d + e;
+
+        // add5Longs(1L, 2L, 3L, c, d)
+        // a fixed to 1L, b fixed to 2L, c fixed to 3L
+        Function2<Long, Long, Long> add2LongsTo6 = add5Longs.apply(1L, 2L, 3L);
+
+        // 11 + 13 + 6 = 30
+        then(add2LongsTo6.apply(11L, 13L)).isEqualTo(30L);
     }
 }
