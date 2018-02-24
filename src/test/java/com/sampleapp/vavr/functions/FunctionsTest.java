@@ -74,4 +74,15 @@ class FunctionsTest {
         then(add5Longs.arity()).isEqualTo(5);
         then(add2LongsTo6.arity()).isEqualTo(2);
     }
+
+    @Test
+    void curryingTest() {
+        Function5<Long, Long, Long, Long, Long, Long> add5Longs = (a, b, c, d, e) -> a + b + c + d + e;
+
+        Function1<Long, Function1<Long, Function1<Long, Function1<Long, Function1<Long, Long>>>>> curriedAdd5Longs =
+                add5Longs.curried();
+
+        then(add5Longs.apply(1L, 2L, 3L, 5L, 7L)).isEqualTo(18L);
+        then(curriedAdd5Longs.apply(1L).apply(2L).apply(3L).apply(5L).apply(7L)).isEqualTo(18L);
+    }
 }
