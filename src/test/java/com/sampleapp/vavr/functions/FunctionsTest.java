@@ -1,5 +1,6 @@
 package com.sampleapp.vavr.functions;
 
+import io.vavr.Function0;
 import io.vavr.Function1;
 import io.vavr.Function2;
 import io.vavr.Function5;
@@ -84,5 +85,15 @@ class FunctionsTest {
 
         then(add5Longs.apply(1L, 2L, 3L, 5L, 7L)).isEqualTo(18L);
         then(curriedAdd5Longs.apply(1L).apply(2L).apply(3L).apply(5L).apply(7L)).isEqualTo(18L);
+    }
+
+    @Test
+    void memoizationTest() {
+        Function0<Double> memoizedMathRandom = Function0.of(Math::random).memoized();
+
+        Double firstRandom = memoizedMathRandom.apply();
+        Double secondRandom = memoizedMathRandom.apply();
+
+        then(firstRandom).isEqualTo(secondRandom);
     }
 }
