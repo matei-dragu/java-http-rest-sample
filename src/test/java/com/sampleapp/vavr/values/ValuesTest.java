@@ -1,5 +1,6 @@
 package com.sampleapp.vavr.values;
 
+import io.vavr.Lazy;
 import io.vavr.control.Option;
 import io.vavr.control.Try;
 import lombok.extern.slf4j.Slf4j;
@@ -71,5 +72,17 @@ class ValuesTest {
 
     private String thisFunctionThrowsCheckedException() throws Exception {
         throw new IOException("Checked Exception Thrown - IOException!");
+    }
+
+    @Test
+    void lazyTest() {
+        Lazy<Double> randomLazy = Lazy.of(Math::random);
+
+        then(randomLazy.isEvaluated()).isFalse();
+
+        Double currentRandom = randomLazy.get();
+
+        then(randomLazy.isEvaluated()).isTrue();
+        then(randomLazy.get()).isEqualTo(currentRandom); // memoized !!!
     }
 }
