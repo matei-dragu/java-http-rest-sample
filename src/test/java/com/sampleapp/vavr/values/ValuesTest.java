@@ -1,8 +1,14 @@
 package com.sampleapp.vavr.values;
 
 import io.vavr.control.Option;
+import io.vavr.control.Try;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+
+import static io.vavr.API.*;
+import static io.vavr.Predicates.*;
 
 import static org.assertj.core.api.BDDAssertions.then;
 
@@ -36,6 +42,34 @@ class ValuesTest {
         then(optionOfNull).isEqualTo(Option.none());
         then(mappedOptionOfNull).isEqualTo(Option.none());
         then(maybeString).isEqualTo(Option.none());
+    }
 
+    @Test
+    void tryTest() {
+        Try<String> stringTry = Try.of(this::thisFunctionThrowsCheckedException);
+        log.info("stringTry: {}", stringTry);
+        then(stringTry.isSuccess()).isFalse();
+        then(stringTry.isFailure()).isTrue();
+
+        String out = stringTry.getOrElse("inCaseOfFailure");
+        then(out).isEqualTo("inCaseOfFailure");
+    }
+
+    @Test
+    void tryRecoverTest() {
+        String tryRecoverResult = Try.of(this::thisFunctionThrowsCheckedException)
+                .recover(throwable -> Match(throwable).of(
+                        Case($(instanceOf(IOException.class)), ioException -> "IO Exception"),
+                        Case($(instanceOf(InterruptedException.class)), interruptedException -> "Interrupted!"),
+                        Case($(), innerThrowable -> "Throwable message was: " + innerThrowable.getMessage())
+                ))
+                .getOrElse("__ELSE__");
+
+        log.info("tryRecoverResult: {}", tryRecoverResult);
+        then(tryRecoverResult).isEqualTo("IO Exception");
+    }
+
+    private String thisFunctionThrowsCheckedException() throws Exception {
+        throw new IOException("Checked Exception Thrown - IOException!");
     }
 }
