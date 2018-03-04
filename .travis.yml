@@ -3,3 +3,7 @@ before_install:
 language: java
 jdk:
   - oraclejdk9
+
+# Build script steps:
+script:
+  - ./gradlew check --info
