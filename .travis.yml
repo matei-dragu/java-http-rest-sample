@@ -6,4 +6,4 @@ jdk:
 
 # Build script steps:
 script:
-  - ./gradlew check --info
+  - ./gradlew check --info --stacktrace
