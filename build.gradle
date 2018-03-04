@@ -62,6 +62,7 @@ dependencies {
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile 'io.projectreactor:reactor-test'
 
+    // Use JUnit 5: JUnit Jupiter + JUnit Vintage [for running JUnit 3/4 tests as well]
     testImplementation 'org.junit.jupiter:junit-jupiter-api'
     testRuntimeOnly  'org.junit.jupiter:junit-jupiter-engine'
     testRuntimeOnly  'org.apiguardian:apiguardian-api:1.0.0' // silence test compile warnings
