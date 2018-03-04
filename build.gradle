@@ -1,6 +1,7 @@
 buildscript {
     ext {
         springBootVersion = '2.0.0.RELEASE'
+        springCloudContractVerifierVersion = '2.0.0.M7'
     }
     repositories {
         mavenCentral()
@@ -9,6 +10,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.springframework.cloud:spring-cloud-contract-gradle-plugin:${springCloudContractVerifierVersion}")
     }
 }
 
@@ -52,7 +54,6 @@ dependencies {
 
     testCompile 'org.junit.jupiter:junit-jupiter-engine'
     testCompile 'org.apiguardian:apiguardian-api:1.0.0' // silence test compile warnings
-    testCompile 'com.github.tomakehurst:wiremock:2.15.0'
 }
 
 // Define the main class for the application
