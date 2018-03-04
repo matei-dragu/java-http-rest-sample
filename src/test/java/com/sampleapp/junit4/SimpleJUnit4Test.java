@@ -6,11 +6,11 @@ import org.junit.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
-class SimpleJUnit4Test {
+public class SimpleJUnit4Test {
 
     @Test
-    void junit4TestShouldRunProperly() {
-        log.info("This is a JUnit4 test");
+    public void junit4TestShouldRunProperly() {
+        log.info("This is a JUnit4 test which will be run by the new JUnit Vintage runner");
 
         assertThat(1).isGreaterThan(0);
     }

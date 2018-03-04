@@ -58,11 +58,14 @@ dependencies {
     compileOnly "org.projectlombok:lombok"
     testCompileOnly "org.projectlombok:lombok"
 
+    testCompile 'org.springframework.cloud:spring-cloud-starter-contract-verifier'
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile 'io.projectreactor:reactor-test'
-    testCompile 'org.junit.jupiter:junit-jupiter-engine'
-    testCompile 'org.apiguardian:apiguardian-api:1.0.0' // silence test compile warnings
-    testCompile 'org.springframework.cloud:spring-cloud-starter-contract-verifier'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testRuntimeOnly  'org.junit.jupiter:junit-jupiter-engine'
+    testRuntimeOnly  'org.apiguardian:apiguardian-api:1.0.0' // silence test compile warnings
+    testRuntimeOnly  'org.junit.vintage:junit-vintage-engine:5.1.0'
 }
 
 // Define the main class for the application
