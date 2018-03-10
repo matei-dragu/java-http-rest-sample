@@ -65,7 +65,6 @@ dependencies {
     // Use JUnit 5: JUnit Jupiter + JUnit Vintage [for running JUnit 3/4 tests as well]
     testImplementation 'org.junit.jupiter:junit-jupiter-api'
     testRuntimeOnly  'org.junit.jupiter:junit-jupiter-engine'
-    testRuntimeOnly  'org.apiguardian:apiguardian-api:1.0.0' // silence test compile warnings
     testRuntimeOnly  'org.junit.vintage:junit-vintage-engine:5.1.0'
 }
 
