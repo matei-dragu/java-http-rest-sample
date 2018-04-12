@@ -1,4 +1,4 @@
-package com.sampleapp.junit4;
+package london.dragu.matei.java.http.rest.sample.junit4;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;

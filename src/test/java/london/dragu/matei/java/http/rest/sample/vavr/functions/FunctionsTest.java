@@ -1,4 +1,4 @@
-package com.sampleapp.vavr.functions;
+package london.dragu.matei.java.http.rest.sample.vavr.functions;
 
 import io.vavr.Function0;
 import io.vavr.Function1;

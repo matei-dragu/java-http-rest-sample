@@ -1,4 +1,4 @@
-package com.sampleapp.vavr.values;
+package london.dragu.matei.java.http.rest.sample.vavr.values;
 
 import io.vavr.Lazy;
 import io.vavr.control.Option;

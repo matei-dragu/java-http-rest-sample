@@ -11,7 +11,9 @@ plugins {
     // 3rd party plugins
     id 'com.github.ben-manes.versions' version '0.17.0'
 }
-// TODO group + version
+
+group = 'london.dragu.matei'
+version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.9
 
 repositories {
@@ -40,7 +42,7 @@ dependencies {
 }
 
 // Define the main class for the application
-mainClassName = 'com.sampleapp.SampleApplicationMain'
+mainClassName = 'london.dragu.matei.java.http.rest.sample.SampleApplicationMain'
 
 test {
     useJUnitPlatform() // Use JUnit 5
