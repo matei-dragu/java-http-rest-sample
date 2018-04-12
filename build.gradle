@@ -1,25 +1,17 @@
-buildscript {
-    ext {
-        springBootVersion = '2.0.1.RELEASE'
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    }
-}
-
+// Using the "new" plugin mechanism introduced in Gradle 2.1
 plugins {
+    // Spring plugins: https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html/
+    id 'org.springframework.boot' version '2.0.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.5.RELEASE'
+
+    // Standard Gradle plugins
+    id 'java'
+    id 'application'
+
+    // 3rd party plugins
     id 'com.github.ben-manes.versions' version '0.17.0'
 }
-
-// Apply the java plugin to add support for Java
-apply plugin: 'java'
-
-// Apply the application plugin to add support for building an application
-apply plugin: 'application'
-
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
-
+// TODO group + version
 sourceCompatibility = 1.9
 
 repositories {
